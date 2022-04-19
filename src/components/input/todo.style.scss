@@ -1,0 +1,44 @@
+.todos {
+    margin: 2rem .5rem;
+
+    form {
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .textInput {
+            width:90%;
+            height: 1.5rem;
+        }
+    
+        .submitInput {
+            border-radius: 0;
+            border: 1px solid #4e4e4e;
+            height:1.9rem;
+            width:auto;
+            white-space: normal;
+            margin: 0;
+        }
+
+
+    }
+
+    .tasks {
+        margin:1rem 0;
+        background-color: rgb(224, 198, 159);
+        padding:1rem;
+        border-radius: 10px;
+
+        .tasks_todo {
+            display: flex;
+            justify-content: space-between;
+            padding:.5rem;
+            margin:1rem 0;
+            border-radius: 10px;
+            background: #eee;
+        }
+
+    }
+}

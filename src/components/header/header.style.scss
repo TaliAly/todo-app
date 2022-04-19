@@ -1,0 +1,14 @@
+.header {
+    h1 {
+        margin: 0;
+    }
+    a {
+        margin:0 .5rem;
+    }
+
+    padding:1rem .5rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
