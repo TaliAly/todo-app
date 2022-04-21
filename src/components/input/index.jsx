@@ -10,7 +10,7 @@ export default function Todo() {
     
     useEffect( () => {
 
-        if ( window.localStorage.getItem("key") != null || window.localStorage.getItem("key") != "" ) {
+        if ( window.localStorage.getItem("key") != null && window.localStorage.getItem("key") != [] ) {
             setTask( window.localStorage.getItem("key").split(",") );
         }
     }, [])
