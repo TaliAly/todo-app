@@ -2,14 +2,20 @@
     h1 {
         margin: 0;
     }
+
     a {
+        &:hover {
+            color:rgb(114, 245, 201);
+        }
         margin:0 .5rem;
+        font-size: 2rem;
+        color:inherit;
+        transition: color 1s;
     }
 
     padding:1rem .5rem;
 
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
-
+    align-items: center;
 }

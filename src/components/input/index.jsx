@@ -1,5 +1,5 @@
 import "./todo.style.scss";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 
 export default function Todo() {
@@ -8,6 +8,10 @@ export default function Todo() {
     const localStorage = window.localStorage;
     let taskChange = tasks;
 
+    
+    useEffect( () => {
+        localStorage.setItem("key", tasks)
+    });
 
 
     function WrapTask(props) {
@@ -50,11 +54,9 @@ export default function Todo() {
             texto.current.value="";
         }
 
-        console.log( taskChange );
-    }
+    }   
 
-
-    console.log( taskChange );
+    // localStorage.setItem("key", taskChange);
 
 
     return (
