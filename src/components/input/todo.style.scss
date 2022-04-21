@@ -10,17 +10,36 @@
         justify-content: center;
 
         .textInput {
+            &:focus {
+                outline: none;
+            }
+
+            font-family: "open sans", sans-serif;
             width:90%;
             height: 1.5rem;
+            font-size: 1rem;
         }
     
         .submitInput {
+
+            &:active {
+                background: #25ABE4;
+            }
+            &:focus {
+                outline: none;
+            }
+
+            cursor: pointer;
+            transition: background .1s ease;
+            font-family: "open sans", sans-serif;
             border-radius: 0;
-            border: 1px solid #4e4e4e;
+            border: none;
+            box-shadow: rgb(0 0 0 / 21%) 4px 4px 3px;
             height:1.9rem;
             width:auto;
             white-space: normal;
             margin: 0;
+            background: #5CC0EB;
         }
 
 
@@ -28,9 +47,10 @@
 
     .tasks {
         margin:1rem 2rem;
-        background-color: rgb(224, 198, 159);
+        background-color: #f3dab4;
         padding:1rem;
         border-radius: 10px;
+        min-height: 60vh;
 
         .tasks_todo {
 
@@ -43,7 +63,8 @@
             padding:.5rem;
             margin:1rem 0;
             border-radius: 10px;
-            background: #eee;
+            background: rgb(248, 248, 248);
+            color:#000;
         }
 
     }

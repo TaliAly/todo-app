@@ -6,9 +6,17 @@ export default function Todo() {
     const [tasks, setTask] = useState([]);
     const texto = useRef(null);
     const localStorage = window.localStorage;
-    let taskChange = tasks;
 
     
+    useEffect( () => {
+
+        if ( localStorage.getItem("key").length >= 1 ) {
+
+            setTask( localStorage.getItem("key").split(",") );
+
+        }
+    }, [])
+
     useEffect( () => {
         localStorage.setItem("key", tasks)
     });
@@ -39,8 +47,6 @@ export default function Todo() {
 
         setTask(newTasks);
 
-        taskChange = tasks.toString();
-
     }
 
     function onAdd(target) {
@@ -56,8 +62,6 @@ export default function Todo() {
 
     }   
 
-    // localStorage.setItem("key", taskChange);
-
 
     return (
 
@@ -72,7 +76,8 @@ export default function Todo() {
 
 
             <div className="tasks">
-            <h2>Tasks To Do:</h2>
+            { ( tasks.length == 0 || tasks.length == "" ) ? <h2>Tasks To Do: none!</h2> : <h2> Tasks To Do: { tasks.length } </h2> }
+
             {tasks.map(
                 (e, key) => { return <WrapTask key={key} name={key} text={e} /> } 
             )
