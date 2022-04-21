@@ -1,4 +1,5 @@
 .todos {
+
     margin: 2rem .5rem;
 
     form {
@@ -26,12 +27,17 @@
     }
 
     .tasks {
-        margin:1rem 0;
+        margin:1rem 2rem;
         background-color: rgb(224, 198, 159);
         padding:1rem;
         border-radius: 10px;
 
         .tasks_todo {
+
+            a {
+                margin:1rem 0;
+            }
+
             display: flex;
             justify-content: space-between;
             padding:.5rem;
