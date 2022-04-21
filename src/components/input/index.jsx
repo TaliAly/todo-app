@@ -5,12 +5,12 @@ import { useState, useRef, useEffect } from "react";
 export default function Todo() {
     const [tasks, setTask] = useState([]);
     const texto = useRef(null);
-    // const localStorage = window.window.localStorage;
+    // const localStorage = window.localStorage;
 
     
     useEffect( () => {
 
-        if ( window.localStorage.getItem("key").length >= 1 ) {
+        if ( window.localStorage.getItem("key") != null || window.localStorage.getItem("key") != "" ) {
             setTask( window.localStorage.getItem("key").split(",") );
         }
     }, [])
