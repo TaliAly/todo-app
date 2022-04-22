@@ -1,86 +1,97 @@
+import { useEffect, useRef, useState } from "react";
 import "./todo.style.scss";
-import { useState, useRef, useEffect } from "react";
-
 
 export default function Todo() {
-    const [tasks, setTask] = useState([]);
-    const texto = useRef(null);
-    // const localStorage = window.localStorage;
+  const [tasks, setTask] = useState([]);
+  let [maxId, setMaxId] = useState(0);
+  const texto = useRef(null);
 
-    
-    useEffect( () => {
-
-        if ( window.localStorage.getItem("key") != null && window.localStorage.getItem("key") != [] ) {
-            setTask( window.localStorage.getItem("key").split(",") );
-        }
-    }, [])
-
-    useEffect( () => {
-        window.localStorage.setItem("key", tasks)
-    });
-
-
-    function WrapTask(props) {
-
-
-
-            
-        return (
-            <div className="tasks_todo">
-                { !(props.text).indexOf("https://") ? <a href={props.text} target="_blank"> {props.text} </a> : <p> {props.text} </p> }
-
-                <button onClick={ () => { 
-                    deleteIt(props.name);
-                } }>Kill</button>
-            </div>
-        )
-    
+  useEffect(() => {
+    if (window.localStorage.getItem("tasks") != "[]") {
+      setTask(JSON.parse(window.localStorage.getItem("tasks")));
     }
+  }, []);
 
-
-    function deleteIt(target) {
-        let newTasks = [...tasks];
-
-        newTasks.splice(target, 1);
-
-        setTask(newTasks);
-
+  useEffect(() => {
+    if (window.localStorage.getItem("maxId") != "0") {
+      setMaxId(Number(window.localStorage.getItem("maxId")));
     }
+  }, []);
 
-    function onAdd(target) {
-        target.preventDefault();
+  useEffect(() => {
+    window.localStorage.setItem("tasks", JSON.stringify(tasks));
+  });
 
+  useEffect(() => {
+    window.localStorage.setItem("maxId", maxId);
+  });
 
-        if ( texto.current.value.trim() != "") {
-
-            setTask([...tasks, texto.current.value ]);
-
-            texto.current.value="";
-        }
-
-    }   
-
-
+  function WrapTask(props) {
     return (
+      <div className="tasks_todo">
+        {!props.text.indexOf("https://") ? (
+          <a href={props.text} target="_blank">
+            {" "}
+            {props.text}{" "}
+          </a>
+        ) : (
+          <p> {props.text} </p>
+        )}
 
-        <div className="todos">
+        <button
+          onClick={() => {
+            deleteIt(props.arraykey);
+          }}
+        >
+          Kill
+        </button>
+      </div>
+    );
+  }
 
-            <div>
-                <form onSubmit={ onAdd }>
-                    <input type="text" className="textInput" ref={texto} />
-                    <button type="submit" className="submitInput">Submit</button>
-                </form>
-            </div>
+  function deleteIt(target) {
+    let newTasks = [...tasks];
+    newTasks.splice(target, 1);
 
+    setTask(newTasks);
+  }
 
-            <div className="tasks">
-            { ( tasks.length == 0 || tasks.length == "" ) ? <h2>Tasks To Do: none!</h2> : <h2> Tasks To Do: { tasks.length } </h2> }
+  function onAdd(target) {
+    target.preventDefault();
 
-            {tasks.map(
-                (e, key) => { return <WrapTask key={key} name={key} text={e} /> } 
-            )
-            }
-            </div>
-        </div>
-    )
-};
+    if (texto.current.value.trim() != "") {
+      setMaxId(++maxId);
+      let task = {};
+      task.id = maxId;
+      task.value = texto.current.value;
+      setTask([...tasks, task]);
+
+      texto.current.value = "";
+    }
+  }
+
+  return (
+    <div className="todos">
+      <div>
+        <form onSubmit={onAdd}>
+          <input type="text" className="textInput" ref={texto} />
+          <button type="submit" className="submitInput">
+            Submit
+          </button>
+        </form>
+      </div>
+
+      <div className="tasks">
+        {tasks.length == 0 ? (
+          <h2>Tasks To Do: none!</h2>
+        ) : (
+          <h2> Tasks To Do: {tasks.length} </h2>
+        )}
+
+        {tasks.map((lol, key) => (
+          <WrapTask key={key} arraykey={key} id={lol.id} text={lol.value} />
+        ))}
+      </div>
+    </div>
+  );
+}

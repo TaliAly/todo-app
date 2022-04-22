@@ -1,71 +1,66 @@
 .todos {
+  margin: 2rem 0.5rem;
 
-    margin: 2rem .5rem;
+  form {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    form {
-        width: 100%;
-        height: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .textInput {
+      &:focus {
+        outline: none;
+      }
 
-        .textInput {
-            &:focus {
-                outline: none;
-            }
-
-            font-family: "open sans", sans-serif;
-            width:90%;
-            height: 1.5rem;
-            font-size: 1rem;
-        }
-    
-        .submitInput {
-
-            &:active {
-                background: #25ABE4;
-            }
-            &:focus {
-                outline: none;
-            }
-
-            cursor: pointer;
-            transition: background .1s ease;
-            font-family: "open sans", sans-serif;
-            border-radius: 0;
-            border: none;
-            box-shadow: rgb(0 0 0 / 21%) 4px 4px 3px;
-            height:1.9rem;
-            width:auto;
-            white-space: normal;
-            margin: 0;
-            background: #5CC0EB;
-        }
-
-
+      font-family: "open sans", sans-serif;
+      width: 100%;
+      margin-right: 5px;
+      height: 1.5rem;
+      font-size: 1rem;
     }
 
-    .tasks {
-        margin:1rem 2rem;
-        background-color: #f3dab4;
-        padding:1rem;
-        border-radius: 10px;
-        min-height: 60vh;
+    .submitInput {
+      &:active {
+        background: #25abe4;
+      }
+      &:focus {
+        outline: none;
+      }
 
-        .tasks_todo {
-
-            a {
-                margin:1rem 0;
-            }
-
-            display: flex;
-            justify-content: space-between;
-            padding:.5rem;
-            margin:1rem 0;
-            border-radius: 10px;
-            background: rgb(248, 248, 248);
-            color:#000;
-        }
-
+      cursor: pointer;
+      transition: background 0.1s ease;
+      font-family: "open sans", sans-serif;
+      border-radius: 0;
+      border: none;
+      box-shadow: rgb(0 0 0 / 21%) 4px 4px 3px;
+      height: 1.9rem;
+      width: auto;
+      white-space: normal;
+      margin: 0;
+      background: #5cc0eb;
     }
+  }
+
+  .tasks {
+    margin-top: 1rem;
+    background-color: #f3dab4;
+    padding: 1rem;
+    border-radius: 10px;
+    min-height: 60vh;
+
+    .tasks_todo {
+      a {
+        margin: 1rem 0;
+      }
+
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      border-radius: 10px;
+      background: rgb(248, 248, 248);
+      color: #000;
+    }
+  }
 }
