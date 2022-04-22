@@ -1,21 +1,21 @@
 .header {
-    h1 {
-        margin: 0;
+  h1 {
+    margin: 0;
+  }
+
+  a {
+    &:hover {
+      color: rgb(114, 245, 201);
     }
+    margin: 0 0.5rem;
+    font-size: 2rem;
+    color: inherit;
+    transition: color 1s;
+  }
 
-    a {
-        &:hover {
-            color:rgb(114, 245, 201);
-        }
-        margin:0 .5rem;
-        font-size: 2rem;
-        color:inherit;
-        transition: color 1s;
-    }
+  padding: 1rem 0.5rem;
 
-    padding:1rem .5rem;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
