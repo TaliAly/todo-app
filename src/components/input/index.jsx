@@ -7,13 +7,19 @@ export default function Todo() {
   const texto = useRef(null);
 
   useEffect(() => {
-    if (window.localStorage.getItem("tasks") != "[]") {
+    if (
+      window.localStorage.getItem("tasks") != "[]" &&
+      window.localStorage.getItem("tasks") != null
+    ) {
       setTask(JSON.parse(window.localStorage.getItem("tasks")));
     }
   }, []);
 
   useEffect(() => {
-    if (window.localStorage.getItem("maxId") != "0") {
+    if (
+      window.localStorage.getItem("maxId") != "0" &&
+      window.localStorage.getItem("maxId") != null
+    ) {
       setMaxId(Number(window.localStorage.getItem("maxId")));
     }
   }, []);
