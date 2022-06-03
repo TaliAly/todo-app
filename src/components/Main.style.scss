@@ -2,6 +2,7 @@
     img {
         max-width: 5rem;
         aspect-ratio: 1/1;
-        object-fit: cover;
+        -o-object-fit: cover;
+           object-fit: cover;
     }
 }

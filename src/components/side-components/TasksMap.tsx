@@ -3,8 +3,8 @@ import "./TasksMap.style.scss"
 import { FaTrash } from "react-icons/fa"
 
 interface Props {
-    title?: string,
-    text: string,
+    title: string,
+    text?: string,
     img?: string,
     num?: number,
     onClick?: Function,
@@ -35,15 +35,14 @@ const TasksMap = forwardRef((props: Props, ref) => {
 
                 <div>
                 <input type="checkbox" onChange={handlerChecked}/>
+                
                 {(!!props.title?.length && taskDone)
                     ? <p className="title"><span>{props.title}</span></p>
                     : <p className="title">{props.title}</p>
                 }
                 </div>
 
-                {!!props.text.length ? <p className="text">{props.text}</p> : null}
-
-                {!!props.img?.length ? <img src={props.img} alt="todo img" /> : null}
+                {!!props.text?.length ? <p className="text">{props.text}</p> : null}
 
             </div>
             <div className="options">

@@ -1,4 +1,4 @@
-import { useState, useRef, FormEvent } from "react"
+import { useState, useEffect } from "react"
 import "./Tasks.style.scss"
 import jsonTasks from "./../../public/json/tasks.json"
 
@@ -8,23 +8,42 @@ import TasksMenu from "./TasksMenu"
 import Form from "./Form"
 
 
+
 function Tasks() {
-    
-    const [countTasks, setCountTasks] = useState(jsonTasks);
+
+
+    const [countTasks, setCountTasks] = useState([{}]);
     const [activeForm, setActiveForm] = useState(false)
+    const localStorage = window.localStorage;
+
+    useEffect(() => {
+        if (localStorage.getItem("key") != null) {
+            let set = JSON.parse(localStorage.getItem("key") || "");
+            setCountTasks(set);
+        }
+        else {
+            setCountTasks(jsonTasks);
+        }
+
+    }, []);
 
     const addHandler = (input: string) => {
-        setCountTasks([...countTasks, JSON.parse(input)])
+        let set = [...countTasks, JSON.parse(input)]
+
+        setCountTasks(set);
+        localStorage.setItem("key", JSON.stringify(set));
+
     }
-    
+
     const removeHandler = (id: number) => {
         let Hllo = countTasks;
         Hllo.splice(id, 1);
 
         setCountTasks([...Hllo]);
+        localStorage.setItem("key", JSON.stringify(countTasks))
     }
 
-    const showForm = (a:string) => {
+    const showForm = (a: string) => {
         setActiveForm(!!a);
 
     }
@@ -32,15 +51,15 @@ function Tasks() {
     // *** JSX 
     return (
         <div className="holder">
-            
+
             <TasksMenu func={showForm} />
-            
-            { activeForm && <Form addHandler={addHandler} closeForm={showForm} />}
+
+            {activeForm && <Form addHandler={addHandler} closeForm={showForm} />}
 
             <div className="tasks">
-                {countTasks.map((target, id) => {
+                {countTasks.map((target:any, id) => {
                     return <TasksMap
-                        onClick={(id: number) => removeHandler(id)}
+                        onClick={(id:number) => removeHandler(id)}
                         title={target.title}
                         text={target.text}
                         num={id}

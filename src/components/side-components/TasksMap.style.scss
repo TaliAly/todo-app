@@ -1,16 +1,18 @@
+@import "./semicomp.styles.scss";
+
 .taskwrap {
     background-color: #eee;
     border-radius: 10px;
     margin: .5rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     max-width: 700px;
     height: auto;
 
-    h3, p {
-        word-wrap: break-word;
-        overflow-wrap: break-word;
+    p {
+        word-break: break-all;
         padding: .5rem;
         margin: 0;
     }
@@ -21,15 +23,19 @@
         div {
             display: flex;
             align-items: center;
+            padding: 1rem;
         }
 
-        input {
-            width: 20px;
-            height: 20px;
+        input[type=checkbox] {
+            min-width: 20px;
+            min-height: 20px;
+            padding: 1rem;
+            margin: 0;
         }
 
         .title {
             font-size: 20px;
+            white-space: wrap;
 
             span {
                 text-decoration: line-through;
@@ -37,16 +43,23 @@
         }
 
         .text {
-            padding: 1rem;
+            width: 95%;
+            margin: 0;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 1rem .5rem;
             background-color: #fff;
         }
     }
 
     .options {
         padding: .5rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+
+        button {
+            @include button;
+            border: none;
+        }
     }
 
     svg {

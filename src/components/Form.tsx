@@ -9,6 +9,7 @@ interface Props {
 }
 
 
+
 const Form = forwardRef((props: Props, ref) => {
     const titleInp = useRef<HTMLInputElement>(null)
     const textInp = useRef<HTMLTextAreaElement>(null);
@@ -16,7 +17,7 @@ const Form = forwardRef((props: Props, ref) => {
     function formSubmit(a: FormEvent) {
         a.preventDefault();
         if (titleInp.current!.value == "") {
-            return null
+            return null;
         }
         let msg = {
             "title": titleInp.current!.value,
@@ -26,11 +27,11 @@ const Form = forwardRef((props: Props, ref) => {
         props.addHandler(JSON.stringify(msg));
         titleInp.current!.value = "";
         textInp.current!.value = "";
-        closeForm()
+        closeForm();
     };
 
     function closeForm() {
-        props.closeForm(false)
+        props.closeForm(false);
     };
 
     return (

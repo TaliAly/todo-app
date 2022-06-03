@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import "./style.scss"
+import "./normalize.scss"
 
 // *** components
 import Main from "./components/Main"
