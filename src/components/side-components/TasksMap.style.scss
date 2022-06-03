@@ -1,0 +1,55 @@
+.taskwrap {
+    background-color: #eee;
+    border-radius: 10px;
+    margin: .5rem;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+
+    h3, p {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        padding: .5rem;
+        margin: 0;
+    }
+
+    .content {
+        padding: .5rem;
+
+        div {
+            display: flex;
+            align-items: center;
+        }
+
+        input {
+            width: 20px;
+            height: 20px;
+        }
+
+        .title {
+            font-size: 20px;
+
+            span {
+                text-decoration: line-through;
+            }
+        }
+
+        .text {
+            padding: 1rem;
+            background-color: #fff;
+        }
+    }
+
+    .options {
+        padding: .5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    svg {
+        pointer-events: none;
+    }
+}

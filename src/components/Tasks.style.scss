@@ -1,0 +1,14 @@
+.holder {
+    svg {
+        font-size: 25px;
+    }
+}
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}

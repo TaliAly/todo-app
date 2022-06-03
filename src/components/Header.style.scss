@@ -1,0 +1,11 @@
+.header {
+    display: flex;
+    margin: .5rem 0;
+    
+    img {
+        width: 5rem;
+        height: auto;
+        object-fit: cover;
+        aspect-ratio: 1 / 1;
+    }
+}
