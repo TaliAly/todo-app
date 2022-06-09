@@ -1,11 +1,15 @@
-import img from "/img/idk.svg"
 import "./Header.style.scss"
+
+// *** Components
+
+import User from "./User"
 
 
 export default function Header() {
     return (
         <div className="header">
-            <h1>Hello!</h1>
+            <p>Just take your time!</p>
+            <User />
         </div>
     )
 }

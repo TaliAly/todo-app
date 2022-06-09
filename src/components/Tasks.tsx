@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import "./Tasks.style.scss"
 import jsonTasks from "./../../public/json/tasks.json"
+import {gsap } from "gsap"
 
 // *** Import Components
 import TasksMap from "./side-components/TasksMap"
@@ -17,6 +18,7 @@ function Tasks() {
     const localStorage = window.localStorage;
 
     useEffect(() => {
+        
         if (localStorage.getItem("key") != null) {
             let set = JSON.parse(localStorage.getItem("key") || "");
             setCountTasks(set);
@@ -35,12 +37,14 @@ function Tasks() {
 
     }
 
-    const removeHandler = (id: number) => {
+    async function removeHandler(element:HTMLDivElement, id: number) {
+        await gsap.to(element, {rotation: "+=360"});
+
         let Hllo = countTasks;
         Hllo.splice(id, 1);
 
         setCountTasks([...Hllo]);
-        localStorage.setItem("key", JSON.stringify(countTasks))
+        localStorage.setItem("key", JSON.stringify(countTasks));
     }
 
     const showForm = (a: string) => {
@@ -59,7 +63,7 @@ function Tasks() {
             <div className="tasks">
                 {countTasks.map((target:any, id) => {
                     return <TasksMap
-                        onClick={(id:number) => removeHandler(id)}
+                        onClick={(element:HTMLDivElement, id:number) => removeHandler(element, id)}
                         title={target.title}
                         text={target.text}
                         num={id}

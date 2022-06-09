@@ -1,8 +1,8 @@
 @mixin button {
     &:hover {
-        color: #95c9b6;
+        color: #7F6A93;
     }
-    transition: color 700ms ease-out;
+    transition: color 500ms ease;
     background-color: inherit;
     cursor: pointer;
 }

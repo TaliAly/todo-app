@@ -1,11 +1,13 @@
 .tasksmenu {
-    background-color: #eee;
+    background-color: #BA6E6E;
+    stroke: #fff;
     border-radius: 10px;
+    max-width: 10rem;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     padding: 1rem;
     margin: 0 1rem;
+
     svg {
         font-size: 30px;
         cursor: pointer;

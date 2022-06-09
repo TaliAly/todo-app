@@ -1,9 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins&display=swap');
+
+$amaranth-purple: #a63a50ff;
+$antique-white: #f0e7d8ff;
+$silver-pink: #ab9b96ff;
+$brown-sugar: #a1674aff;
+$copper-penny: #ba6e6eff;
 
 body {
+    background: rgb(166, 58, 80);
+    background: linear-gradient(180deg,
+            #A63A50 0%,
+            #b9435b 100%);
     font-size: 16px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     line-height: 1.4;
-    font-family: "Open Sans",sans-serif;
+    font-family: "Poppins","Open Sans", sans-serif;
     margin: 0;
     padding: 0;
     white-space: normal;

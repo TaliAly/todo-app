@@ -1,0 +1,11 @@
+
+.user {
+    img {
+        &:hover {
+            outline-color: #444;
+        }
+        cursor: pointer;
+        outline: transparent solid 3px;
+        transition: outline 500ms ease-out;
+    }
+}

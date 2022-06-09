@@ -20,9 +20,7 @@ const TasksMap = forwardRef((props: Props, ref) => {
     const [taskDone, setTaskDone] = useState(false);
 
     function handlerRemove(event: React.MouseEvent<HTMLButtonElement>) {
-
-        props.onClick?.(event.currentTarget.id);
-        
+        props.onClick?.(event.currentTarget, event.currentTarget.id);
     }
     function handlerChecked() {
         setTaskDone(!taskDone);
@@ -42,7 +40,7 @@ const TasksMap = forwardRef((props: Props, ref) => {
                 }
                 </div>
 
-                {!!props.text?.length ? <p className="text">{props.text}</p> : null}
+                {( !!props.text?.trim() ) ? <p className="text">{props.text}</p> : null}
 
             </div>
             <div className="options">
