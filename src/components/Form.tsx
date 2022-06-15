@@ -16,7 +16,7 @@ const Form = forwardRef((props: Props, ref) => {
 
     function formSubmit(a: FormEvent) {
         a.preventDefault();
-        if (titleInp.current!.value == "") {
+        if (titleInp.current!.value.trim() == "") {
             return null;
         }
         let msg = {
